@@ -12,7 +12,8 @@
 export const text_sizes = {
     sm: "text-sm",
     base: "test-base",
-    large: "text-xl"
+    large: "text-xl",
+    xl: "text-3xl"
 };
 
 
