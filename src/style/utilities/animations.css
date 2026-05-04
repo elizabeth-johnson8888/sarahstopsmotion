@@ -1,0 +1,185 @@
+/* 
+    Created By: Elizabeth Johnson
+    Date: 5/3/2026
+
+    CSS Animations:
+    Wiggle
+    Boing
+    Fade
+        - in
+        - out
+    Translate
+        - from west
+        - from east
+        - from north
+        - from south
+    Fade and slide
+    Scale in and out
+*/
+@import "tailwindcss";
+
+/* ease-in-out forwards animation base 
+
+   Used by:
+    - animate-wiggle
+    - animate-boing
+    - animate-w-start
+    - animate-e-start
+    - animate-n-start
+    - animate-s-start
+    - animate-scale-large
+    - animate-scale-small
+*/
+@utility animate-eio-base {
+  animation-duration: var(--animation-speed);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: var(--animation-iterations);
+}
+
+/* creates wiggle movement */
+@utility animate-wiggle {
+  animation-name: wiggle;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+
+
+/* boing */
+@utility animate-boing {
+    animation-name: boing;
+}
+
+@keyframes boing {
+  0%, 100% { transform: scale(1.10); }
+  50% { transform: scale(.9); }
+}
+
+
+
+/* Fade in and out */
+@utility animate-fade-in {
+    animation-name: fade-in;
+    animation-duration: var(--animation-speed);
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: var(--animation-iterations);
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity:1; }
+}
+
+@utility animate-fade-out {
+    animation-name: fade-out;
+    animation-duration: var(--animation-speed);
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    animation-iteration-count: var(--animation-iterations);
+}
+
+@keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity:0; }
+}
+
+
+/* Translate */
+@utility animate-w-start {
+    animation-name: w-start;
+    animation-fill-mode: forwards;
+}
+
+@keyframes w-start {
+    from { transform: translateX(-50%) }
+    to { transform: translateX(0%) }
+}
+
+@utility animate-e-start {
+    animation-name: e-start;
+    animation-fill-mode: forwards;
+}
+
+@keyframes e-start {
+    from { transform: translateX(50%) }
+    to { transform: translateX(0%) }
+}
+
+@utility animate-n-start {
+    animation-name: n-start;
+    animation-fill-mode: forwards;
+}
+
+@keyframes n-start {
+    from { transform: translateY(-50%) }
+    to { transform: translateY(0%) }
+}
+
+@utility animate-s-start {
+    animation-name: s-start;
+    animation-fill-mode: forwards;
+}
+
+@keyframes s-start {
+    from { transform: translateY(50%) }
+    to { transform: translateY(0%) }
+}
+
+
+
+/* Fade and Slide 
+
+    - originally slides from left (w-start)
+*/
+@utility animate-fade-in-direction {
+    animation: 
+        fade-in var(--animation-speed) ease-out forwards var(--animation-iterations),
+        var(--translate-direction) var(--animation-speed) ease-in-out forwards var(--animation-iterations);
+}
+
+@utility animate-fade-out-direction {
+    animation: 
+        fade-out var(--animation-speed) ease-in forwards var(--animation-iterations),
+        var(--translate-direction) var(--animation-speed) ease-in-out forwards var(--animation-iterations);
+}
+
+
+
+/* scale */
+@utility animate-scale-large {
+    animation-name: scale-large;
+    animation-fill-mode: forwards;
+}
+
+@keyframes scale-large {
+    from { transform: scale(0) }
+    to { transform:scale(1) }
+}
+
+@utility animate-scale-small {
+    animation-name: scale-small;
+    animation-fill-mode: forwards;
+}
+
+@keyframes scale-small {
+    from { transform: scale(1) }
+    to { transform:scale(0) }
+}
+
+
+/* fade and scale */
+@utility animate-scale-fade-in {
+    animation: 
+        fade-in var(--animation-speed) ease-out forwards var(--animation-iterations),
+        scale-large var(--animation-speed) ease-in-out forwards var(--animation-iterations);
+}
+
+@utility animate-scale-fade-out {
+    animation: 
+        fade-out var(--animation-speed) ease-in forwards var(--animation-iterations),
+        scale-small var(--animation-speed) ease-in-out forwards var(--animation-iterations);
+}

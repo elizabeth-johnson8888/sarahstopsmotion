@@ -1,0 +1,30 @@
+/* 
+    Created By: Elizabeth Johnson
+    Date: 5/3/2026
+
+    CSS Effects:
+    Brightness
+    Scale
+*/
+@import "tailwindcss";
+
+
+/* brightness */
+@utility transition-dark {
+    filter: brightness(0.75);
+}
+
+@utility transition-light {
+    filter: brightness(1.25);
+}
+
+
+
+/* scale */
+@utility get-smaller {
+    transform: scale(.95);
+}
+
+@utility get-bigger {
+    transform: scale(1.05);
+}
