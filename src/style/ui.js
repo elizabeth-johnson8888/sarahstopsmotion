@@ -10,10 +10,10 @@
 
 
 export const text_sizes = {
-    sm: "text-sm",
-    base: "test-base",
-    large: "text-xl",
-    xl: "text-3xl"
+    sm: "text-sm md:text-base",
+    base: "text-xl md:text-2xl",
+    large: "text-2xl md:text-3xl",
+    xl: "text-3xl md:text-5xl"
 };
 
 

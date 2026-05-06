@@ -24,7 +24,7 @@ import { text_sizes, text_font } from "../style/ui"
     animation: list of animation utilities for button -------- OPTIONAL
     custom_style: change animation variables ----------------- OPTIONAL
 */
-export function TextButton({ text, size="large", font="title", background="bg-primary", text_color="text-accent", onClick, animation=[], custom_style={} }) {
+export function TextButton({ text, size="base", font="title", background="bg-primary", text_color="text-accent", onClick, animation=[], custom_style={} }) {
   return (
     <>
       <button className={`p-3 m-1 inline-block rounded-md ${text_sizes[size]} ${text_font[font]} ${background} ${text_color} ${animation.join(" ")}`} style={custom_style} onClick={onClick}>
@@ -51,7 +51,7 @@ export function TextButton({ text, size="large", font="title", background="bg-pr
     animation: list of animation utilities for button ---- OPTIONAL
     custom_style: change animation variables ------------- OPTIONAL
 */
-export function ImageButton({ asset="src/assets/react.svg", assetTitle="react", height="h-10", onClick, text, size="large", font="title", text_color="text-accent", animation=[""], custom_style={} }) {
+export function ImageButton({ asset="src/assets/react.svg", assetTitle="react", height="", onClick, text, size="large", font="title", text_color="text-accent", animation=[""], custom_style={} }) {
   return (
     <>
       <button className={`p-3 m-1 relative inline-block ${animation.join(" ")}`} style={custom_style} onClick={onClick}>
