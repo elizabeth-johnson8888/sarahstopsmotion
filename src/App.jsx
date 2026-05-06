@@ -12,6 +12,7 @@ import './style/utilities/effects.css'
 import { speed, directions } from './style/ui'
 import { ImageButtonNavBar, TextButtonNavBar, ImageNavBar, TextNavBar } from './layouts/NavigationBar'
 import { VideoPlayer } from './components/VideoPlayer'
+import { ImageFrame } from './layouts/Frame'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -34,6 +35,7 @@ function App() {
         <ImageNavBar />
         <TextNavBar/>
         <VideoPlayer poster="" className="w-full max-w-4xl aspect-video" videoSrc={videoSrc} />
+        <ImageFrame />
       </section>
     </>
   )
