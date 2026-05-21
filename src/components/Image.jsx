@@ -7,10 +7,14 @@
 
 // Defines a paragraph textbox
 // assetTitle is for accessibility reasons
-export function Image ({ asset="src/assets/react.svg", assetTitle="react", height="h-10" }) {
+export function Image ({ asset="src/assets/react.svg", 
+                         assetTitle="react", 
+                         className="h-10" }) {
     return (
         <>
-            <img src={asset} alt={assetTitle} className={`m-0 p-0 ${height}`} />
+            <img src={asset} 
+                 alt={assetTitle} 
+                 className={`m-0 p-0 ${className}`} />
         </>
     )
 }

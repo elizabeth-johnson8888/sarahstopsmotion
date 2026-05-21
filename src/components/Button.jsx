@@ -24,10 +24,15 @@ import { text_sizes, text_font } from "../style/ui"
     animation: list of animation utilities for button -------- OPTIONAL
     custom_style: change animation variables ----------------- OPTIONAL
 */
-export function TextButton({ text, size="base", font="title", background="bg-primary", text_color="text-accent", onClick, animation=[], custom_style={} }) {
+export function TextButton({ text, 
+                             className, 
+                             onClick, 
+                             custom_style={} }) {
   return (
     <>
-      <button className={`p-3 m-1 inline-block rounded-md ${text_sizes[size]} ${text_font[font]} ${background} ${text_color} ${animation.join(" ")}`} style={custom_style} onClick={onClick}>
+      <button className={`p-3 m-1 inline-block rounded-md ${text_sizes["base"]} ${text_font["title"]} bg-primary text-accent ${className}`} 
+              style={custom_style} 
+              onClick={onClick}>
         {text}
       </button>
     </>
@@ -51,12 +56,28 @@ export function TextButton({ text, size="base", font="title", background="bg-pri
     animation: list of animation utilities for button ---- OPTIONAL
     custom_style: change animation variables ------------- OPTIONAL
 */
-export function ImageButton({ asset="src/assets/react.svg", assetTitle="react", height="", onClick, text, size="large", font="title", text_color="text-accent", animation=[""], custom_style={} }) {
+export function ImageButton({ asset="src/assets/react.svg", 
+                              assetTitle="react", 
+                              height="", 
+                              onClick, 
+                              text, 
+                              size="large", 
+                              font="title", 
+                              text_color="text-accent", 
+                              className,
+                              imageClassName, 
+                              custom_style={} }) {
   return (
     <>
-      <button className={`p-3 m-1 relative inline-block ${animation.join(" ")}`} style={custom_style} onClick={onClick}>
-        <img src={asset} alt={assetTitle} className={`m-0 p-0 ${height} w-auto`} />
-        <div className={`absolute inset-0 flex items-center justify-center ${text_sizes[size]} ${text_font[font]} ${text_color}`}>{text}</div>
+      <button className={`p-3 m-1 relative inline-block ${className}`} 
+              style={custom_style} 
+              onClick={onClick}>
+        <img src={asset} 
+             alt={assetTitle} 
+             className={`m-0 p-0 ${imageClassName} w-auto`} />
+        <div className={`absolute inset-0 flex items-center justify-center ${text_sizes[size]} ${text_font[font]} ${text_color}`}>
+          {text}
+        </div>
       </button>
     </>
   )

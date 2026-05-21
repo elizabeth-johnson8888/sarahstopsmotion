@@ -36,3 +36,6 @@ export const directions = {
     n_start: "n-start",
     s_start: "s-start"
 };
+
+
+export const page_layout = "flex flex-col";
