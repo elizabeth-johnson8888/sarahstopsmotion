@@ -20,5 +20,6 @@ export const storage = defineStorage({
     // allow.guest.to(["read"]) means: anyone visiting your site (even without
     // logging in) can READ (download/view) these files.
     "media/*": [allow.guest.to(["read"])],
+    "assets/*": [allow.guest.to(["read"])],
   }),
 });

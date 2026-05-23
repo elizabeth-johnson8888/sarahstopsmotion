@@ -1,0 +1,40 @@
+// =============================================================================
+// public/portfolio.json
+// =============================================================================
+// This JSON file acts as your portfolio's "database". It lists all your works
+// along with their metadata (title, description, category, etc.) and the S3
+// paths to their associated media files.
+//
+// TO ADD A NEW WORK:
+//   1. Upload your video/images to S3 under the media/ folder
+//   2. Add a new entry to the "works" array below
+//   3. Redeploy (or just save — Amplify Hosting auto-deploys on git push)
+// =============================================================================
+
+// each work will have the following information
+// id: how application names piece
+// title: work title
+// section: Where on the site do you want this information
+// project name: what project this is associated with
+// description: artist statement
+// date: yyyyMMdd the work was completed
+// tags: for search algorithm
+// thumbnail: video cover/image cover path
+// video: video path
+
+
+{
+    "works": [
+        {
+            "id": "video1",
+            "title": "video name",
+            "section": "carosel",
+            "project-name": "penis",
+            "description": "doo doo doo doododo",
+            "date": "20260523",
+            "tags": ["poop", "doodoo", "green"],
+            "thumbnail": "media/thumbnails/nike-spot.jpg",
+            "video": "media/videos/nike-spot.mp4"
+        }
+    ]
+}

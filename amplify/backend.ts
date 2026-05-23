@@ -9,8 +9,11 @@ import { storage } from './storage/resource';
 defineBackend({
   auth,
   data,
-});
-
-export const backend = defineBackend({
   storage,
 });
+
+
+
+// export const backend = defineBackend({
+//   storage,
+// });
