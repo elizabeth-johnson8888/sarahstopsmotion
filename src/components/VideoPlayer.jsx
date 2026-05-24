@@ -74,7 +74,7 @@ function formatTime(seconds) {
  *   className {string}  Tailwind classes for the outer wrapper.
  *                       Use this to control size, e.g. "w-full max-w-4xl aspect-video"
  */
-export function VideoPlayer({ poster, className = "", videoSrc }) {
+export function VideoPlayer({ className = "", videoSrc }) {
 
   // ── DOM refs ───────────────────────────────────────────────────────────────
   const videoRef      = useRef(null); // the <video> element itself
@@ -350,10 +350,10 @@ export function VideoPlayer({ poster, className = "", videoSrc }) {
                                not the full video, saving bandwidth
            Clicking the video itself toggles play, matching YouTube/Netflix UX.
       ───────────────────────────────────────────────────────────────────────── */}
+      {/* poster={poster} */}
       <video
         ref={videoRef}
         src={videoSrc}
-        poster={poster}
         className="w-full h-full object-contain block"
         preload="metadata"
         onClick={togglePlay}

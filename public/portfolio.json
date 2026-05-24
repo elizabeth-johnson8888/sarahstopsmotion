@@ -1,0 +1,51 @@
+// =============================================================================
+// public/portfolio.json
+// =============================================================================
+// This JSON file acts as your portfolio's "database". It lists all your works
+// along with their metadata (title, description, category, etc.) and the S3
+// paths to their associated media files.
+//
+// TO ADD A NEW WORK:
+//   1. Upload your video/images to S3 under the media/ folder
+//   2. Add a new entry to the "works" array below
+//   3. Redeploy (or just save — Amplify Hosting auto-deploys on git push)
+// =============================================================================
+
+// each work will have the following information
+// id: how application names piece -- must be unique
+// title: work title
+// section: Where on the site do you want this information
+// project name: what project this is associated with
+// description: artist statement
+// date: yyyyMMdd the work was completed
+// tags: for search algorithm
+// thumbnail: video cover/image cover path
+// video: video path, set to null if there is no video
+
+
+{
+    "works": [
+        {
+            "id": "how2be-human-1",
+            "title": "Shrimp Love Bugs Me",
+            "section": "carosel",
+            "project-name": "How to Be Human",
+            "description": "\"How to be Human\" is a limited series about Juno (alien, from outer space), who visits Earth on a shadow government run scholarship and gets a taste of that typical college experience. In colaboration with Elle Creasy, “Shrimp Love Bugs Me” is an amalgamation of our passion for comedy, animation, and… lesbianism? Through experimental animation — puppetry, digital art, and mixed media collage — we create a silly, absurdist take on social media algorithms and polarizing online propaganda.",
+            "date": "20250829",
+            "tags": ["series", "aliens", "rotoscope"],
+            "thumbnail": null,
+            "video": "media/videos/06_ShrimpLoveBugsMe_Johnson_Creasy_3min13sec.mp4"
+        },
+        {
+            "id": "girlhood",
+            "title": "Girlhood",
+            "section": "carosel",
+            "project-name": "girlhood",
+            "description": null,
+            "date": "20260523",
+            "tags": ["editing"],
+            "thumbnail": null,
+            "video": "media/videos/girlhood.mp4"
+        }
+    ]
+}

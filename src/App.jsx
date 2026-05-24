@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
-// import videoSrc from '../public/videos/video.mp4'
-// import heroImg from './assets/hero.png'
 import { TextButton, ImageButton } from './components/Button'
 import { ParagraphTextBox, CaptionTextBox, HeaderTextBox, SubheaderTextBox } from './components/Text'
 import { Image } from './components/Image'
@@ -15,9 +13,31 @@ import { ImageButtonNavBar, TextButtonNavBar, ImageNavBar, TextNavBar } from './
 import { VideoPlayer } from './components/VideoPlayer'
 import { ImageFrame } from './layouts/Frame'
 import { MainPage } from './pages/mainPage'
+import { usePortfolio } from '../hooks/usePortfolio.js'
 
 function App() {
   const [count, setCount] = useState(0)
+  const { works, loading, error } = usePortfolio()
+
+  // ---- Loading state -------------------------------------------------------
+  if (loading) {
+    return (
+      <div className="loading">
+        <p>Loading portfolio...</p>
+      </div>
+    );
+  }
+
+  // ---- Error state ---------------------------------------------------------
+  if (error) {
+    return (
+      <div className="error">
+        <p>Could not load portfolio: {error}</p>
+      </div>
+    );
+  }
+
+  const girlhoodWork = works.find(work => work.id === "girlhood")
 
   return (
     <>
@@ -37,9 +57,9 @@ function App() {
         <ImageButtonNavBar />
         <TextButtonNavBar />
         <ImageNavBar />
-        <TextNavBar/>
-        <VideoPlayer poster="" className="w-full max-w-4xl aspect-video" videoSrc={videoSrc} />
-        <ImageFrame z_score="-z-1"/>
+        <TextNavBar/> */}
+        <VideoPlayer className="w-full max-w-4xl aspect-video" videoSrc={girlhoodWork?.url} />
+        {/* <ImageFrame z_score="-z-1"/>
         <ImageFrame /> */}
       </section>
     </>
