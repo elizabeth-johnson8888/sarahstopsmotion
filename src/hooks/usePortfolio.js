@@ -100,9 +100,7 @@ export function usePortfolio() {
         const resolvedWorks = await Promise.all(
           data.works.map(async (work) => {
             // only resolve thumbnail if the work has one
-            const thumbnailUrl = work.thumbnail
-              ? await resolveS3Url(work.thumbnail)
-              : null;
+            const thumbnailUrl = await resolveS3Url(work.thumbnail);
 
             // Only resolve video URL if this work has a video key
             const videoUrl = work.video

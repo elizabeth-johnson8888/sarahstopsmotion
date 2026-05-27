@@ -29,3 +29,21 @@ export function ImageFrame ({ frame=viteLogo,
         </div>
     )
 }
+
+export function TVFrame ({ frame=reactLogo, 
+                              frameClassName="h-80", 
+                              VideoPlayer, 
+                              z_score="" }) {
+    return (
+        <div className="relative block leading-none">
+            <Image asset={frame} 
+                   assetTitle="frame" 
+                   className={`block ${frameClassName}`}/>
+
+            {/* add '-z-1' if you want the picture to be below the frame */}
+            <div className={`absolute inset-0 flex items-center justify-center px-5 ${z_score}`}>
+                {VideoPlayer}
+            </div>
+        </div>
+    )
+}

@@ -6,8 +6,16 @@
   --color-primary: rgb(var(--primary) / 100);
   --color-secondary: rgb(var(--secondary) / 100);
   --color-accent: rgb(var(--accent) / 100);
+  --color-dark-accent: rgb(var(--dark-accent) / 100);
   --color-background: rgb(var(--background) / 100);
-  --color-text: rgb(var(--text) / 100);
+  --color-secondary-background: rgb(var(--secondary-background) / 100);
+  --color-light-grey: rgb(var(--light-grey) / 100);
+  --color-med-grey: rgb(var(--med-grey) / 100);
+  --color-dark-grey: rgb(var(--dark-grey) / 100);
+  --color-hair: rgb(var(--hair) / 100);
+  --color-skin: rgb(var(--skin) / 100);
+  --color-secondary-accent: rgb(var(--secondary-accent) / 100);
+  --color-dark-secondary-accent: rgb(var(--dark-secondary-accent) / 100);
 
   --animation-speed: 0.7s;
   --animation-iterations: 1;

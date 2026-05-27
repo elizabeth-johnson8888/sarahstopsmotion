@@ -30,7 +30,7 @@ export function TextButton({ text,
                              custom_style={} }) {
   return (
     <>
-      <button className={`p-3 m-1 inline-block rounded-md ${text_sizes["base"]} ${text_font["title"]} bg-primary text-accent ${className}`} 
+      <button className={`p-3 m-1 inline-block rounded-md ${text_font["title"]} bg-primary text-accent ${className}`} 
               style={custom_style} 
               onClick={onClick}>
         {text}
@@ -69,9 +69,10 @@ export function ImageButton({ asset="src/assets/react.svg",
                               custom_style={} }) {
   return (
     <>
-      <button className={`p-3 m-1 relative inline-block ${className}`} 
+      <button className={`p-0 m-0 relative inline-block ${className}`} 
               style={custom_style} 
-              onClick={onClick}>
+              onClick={onClick}
+              type="button">
         <img src={asset} 
              alt={assetTitle} 
              className={`m-0 p-0 ${imageClassName} w-auto`} />

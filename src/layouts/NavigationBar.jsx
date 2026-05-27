@@ -7,6 +7,7 @@
 import viteLogo from '../assets/vite.svg'
 import { ImageButton, TextButton } from "../components/Button"
 import { useState } from "react"
+import { text_sizes } from "../style/ui"
 
 export function ImageButtonNavBar ({}) {
     const [clicked, isClicked] = useState(false)
@@ -60,32 +61,38 @@ export function ImageButtonNavBar ({}) {
 
 export function TextButtonNavBar ({}) {
     const [clicked, isClicked] = useState(false)
-    const imageHeight = "h-7"
+    const imageHeight = "h-8"
 
     return (
-        <div className="flex flex-col md:flex-row">
+        <div className="relative w-full">
             <ImageButton asset={viteLogo} 
                          assetTitle="vite" 
                          imageClassName={imageHeight} 
                          onClick={() => isClicked(!clicked)} 
                          text="" 
-                         className={`shrink-0`}
+                         className={`shrink-0 p-3`}
                          animation={["shrink-0"]} />
             { clicked && (
-                <div className="flex flex-col md:flex-row gap-4 md:mx-15 w-full justify-between">
-                    <TextButton text="home" 
-                                onClick={() => console.log("clicked")}/>
-                    <TextButton text="youtube" 
-                                onClick={() => console.log("clicked")} />
-                    <TextButton text="animations" 
-                                onClick={() => console.log("clicked")}/>
-                    <TextButton text="house" 
-                                onClick={() => console.log("clicked")} />
-                    <TextButton text="about me" 
+                <div className="absolute z-50 flex flex-col gap-2 p-2 w-screen justify-center items-center mt-10">
+                    <TextButton text="Home" 
                                 onClick={() => console.log("clicked")}
-                                className="text-nowrap"/>
-                    <TextButton text="resume" 
-                                onClick={() => console.log("clicked")} />
+                                className="bg-transparent"
+                                />
+                    <TextButton text="Animation and Video" 
+                                onClick={() => console.log("clicked")}
+                                className="bg-transparent" 
+                                />
+                    <TextButton text="Illustration and Design" 
+                                onClick={() => console.log("clicked")}
+                                className="bg-transparent"
+                                />
+                    <TextButton text="About" 
+                                onClick={() => console.log("clicked")}
+                                className="bg-transparent"
+                                />
+                    <TextButton text="Resume" 
+                                onClick={() => console.log("clicked")}
+                                className="text-nowrap bg-transparent"/>
                 </div>
             )}
         </div>
@@ -134,22 +141,22 @@ export function ImageNavBar ({}) {
 export function TextNavBar ({ className, buttonClassName }) {
 
     return (
-        <div className={`flex flex-col md:flex-row w-40 md:w-auto justify-center gap-7 xl:gap-10 mx-3 md:mx-15 ${className}`}>
-            <TextButton text="youtube" 
+        <div className={`flex flex-col md:flex-row w-40 md:w-auto justify-center gap-7 xl:gap-10 mx-3 md:mx-0 z-50 ${className}`}>
+            <TextButton text="Home" 
                         onClick={() => console.log("clicked")}
-                        className={buttonClassName} />
-            <TextButton text="animations" 
+                        className={`${text_sizes["nav"]} ${buttonClassName}`} />
+            <TextButton text="Animation and Video" 
                         onClick={() => console.log("clicked")}
-                        className={buttonClassName}/>
-            <TextButton text="house" 
+                        className={`${text_sizes["nav"]} ${buttonClassName}`} />
+            <TextButton text="Illustration and Design" 
                         onClick={() => console.log("clicked")} 
-                        className={buttonClassName}/>
-            <TextButton text="about me" 
+                        className={`${text_sizes["nav"]} ${buttonClassName}`} />
+            <TextButton text="About" 
                         onClick={() => console.log("clicked")}
-                        className={buttonClassName}/>
-            <TextButton text="resume" 
+                        className={`${text_sizes["nav"]} ${buttonClassName}`} />
+            <TextButton text="Resume" 
                         onClick={() => console.log("clicked")} 
-                        className={buttonClassName}/>
+                        className={`${text_sizes["nav"]} ${buttonClassName}`} />
         </div>
     )
 }

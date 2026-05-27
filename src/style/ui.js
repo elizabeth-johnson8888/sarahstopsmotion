@@ -13,7 +13,8 @@ export const text_sizes = {
     sm: "text-sm md:text-base",
     base: "text-xl md:text-2xl",
     large: "text-2xl md:text-3xl",
-    xl: "text-3xl md:text-5xl"
+    xl: "text-3xl md:text-5xl",
+    nav: "text-xl"
 };
 
 
@@ -38,4 +39,4 @@ export const directions = {
 };
 
 
-export const page_layout = "flex flex-col";
+export const page_layout = "flex flex-col p-0 m-0";

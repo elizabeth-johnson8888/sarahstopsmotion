@@ -14,7 +14,7 @@ import { text_sizes, text_font } from "../style/ui"
 export function ParagraphTextBox ({ text, color }) {
     return (
         <>
-            <p className={`p-3 m-1 ${text_sizes.base} ${text_font.basic} ${color}`}>{text}</p>
+            <p className={`${text_sizes.base} ${text_font.basic} ${color}`}>{text}</p>
         </>
     )
 }
@@ -24,10 +24,10 @@ export function ParagraphTextBox ({ text, color }) {
 
     caption background will not default to parent background
 */
-export function CaptionTextBox ({ text, text_color }) {
+export function CaptionTextBox ({ text, color }) {
     return (
         <>
-            <p className={`p-3 m-1 ${text_sizes.sm} ${text_font.basic} ${text_color} bg-inherit`}>{text}</p>
+            <p className={`${text_sizes.sm} ${text_font.basic} ${color} bg-inherit`}>{text}</p>
         </>
     )
 }
@@ -36,11 +36,11 @@ export function CaptionTextBox ({ text, text_color }) {
 /* 
     Defines header textbox
 */
-export function HeaderTextBox ({ text, text_color }) {
+export function HeaderTextBox ({ text, text_color, className }) {
     return (
-        <>
-            <h1 className={`p-3 m-1 ${text_sizes.xl} ${text_font.title} ${text_color}`}>{text}</h1>
-        </>
+        <div className={className}>
+            <h1 className={`p-3 ${text_sizes.xl} ${text_font.title} ${text_color}`}>{text}</h1>
+        </div>
     )
 }
 
@@ -50,7 +50,7 @@ export function HeaderTextBox ({ text, text_color }) {
 export function SubheaderTextBox ({ text, text_color }) {
     return (
         <>
-            <h1 className={`p-3 m-1 ${text_sizes.large} ${text_font.title} ${text_color}`}>{text}</h1>
+            <h1 className={` ${text_sizes.large} ${text_font.title} ${text_color}`}>{text}</h1>
         </>
     )
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import { TextButton, ImageButton } from './components/Button'
@@ -11,13 +11,28 @@ import './style/App.css'
 import { speed, directions } from './style/ui'
 import { ImageButtonNavBar, TextButtonNavBar, ImageNavBar, TextNavBar } from './layouts/NavigationBar'
 import { VideoPlayer } from './components/VideoPlayer'
-import { ImageFrame } from './layouts/Frame'
+import { ImageFrame, TVFrame } from './layouts/Frame'
 import { MainPage } from './pages/mainPage'
-import { usePortfolio } from '../hooks/usePortfolio.js'
+import { VideoPorfolio } from './pages/videoportfolio'
+import { Illustrations } from './pages/illustrations.jsx'
+import { usePortfolio } from './hooks/usePortfolio.js'
 
 function App() {
   const [count, setCount] = useState(0)
-  const { works, loading, error } = usePortfolio()
+  const [mobileNavBarClicked, setMobileNavBarClicked] = useState(false)
+  const { works = [], loading, error } = usePortfolio()
+
+  // when the screen size hits md: breakpoint the mobileNavBarClicked variable turns false
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMobileNavBarClicked(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   // ---- Loading state -------------------------------------------------------
   if (loading) {
@@ -37,30 +52,40 @@ function App() {
     );
   }
 
+  console.log(works)
+
+  // const girlhoodWork = works.find(work => work.id === "girlhood")
+
+  // Get the Animation Reel video from works
   const girlhoodWork = works.find(work => work.id === "girlhood")
+  
+  // get all the works that are part of the video porfolio
+  const videoWorks = works.filter(work => work.section === "video" )
 
   return (
     <>
       <section id="pageBody"
-              className="min-h-screen bg-(--color-background) flex items-start justify-center">
-        <MainPage />
-        {/* <TextButton text="button text" onClick={() => console.log("clicked")} className="active:animate-scale-fade-out" custom_style={{"--animation-speed": speed.xtra_slow, "--translate-direction": directions.s_start }}/>
-        <p>fake</p>
-        <ImageButton asset={viteLogo} assetTitle="vite" height="" onClick={() => console.log("clicked image")} text="image text" className="hover:animate-wiggle hover:animate-eio-base active:transition-dark" custom_style={{"--animation-speed": speed.xtra_slow, "--animation-iterations": "infinite" }} />
-        <HeaderTextBox text="Header Header" text_color="text-primary" />
-        <SubheaderTextBox text="Subheader Subheader" text_color="text-primary" />
-        <ParagraphTextBox text="paragraph paragraph paragraph" color="text-accent" />
-        <CaptionTextBox text="caption caption caption caption" text_color="text-primary" />
-        <Image asset={viteLogo} assetTitle="vite" className="h-24"/>
-        <TextLink text="link" link="https://getbootstrap.com/docs/5.3/components/carousel/" color="text-primary" />
-        <ImageLink link="https://getbootstrap.com/docs/5.3/components/carousel/" />
-        <ImageButtonNavBar />
-        <TextButtonNavBar />
-        <ImageNavBar />
-        <TextNavBar/> */}
-        <VideoPlayer className="w-full max-w-4xl aspect-video" videoSrc={girlhoodWork?.url} />
-        {/* <ImageFrame z_score="-z-1"/>
-        <ImageFrame /> */}
+              className="min-h-screen bg-(--color-background)">
+          {/* desktop screen */}
+          <div className="hidden md:block md:fixed z-50">
+              <TextNavBar className="mt-0 mx-0 md:w-screen bg-primary" buttonClassName="px-6"/>
+          </div>
+
+          {/* mobile screen */}
+          <div className="block md:hidden mt-0 fixed z-30"
+               onClick={() => setMobileNavBarClicked(prev => !prev)}>
+              <TextButtonNavBar />
+          </div>
+            
+        { !mobileNavBarClicked && (
+          <div className='p-0 m-0'>
+            <MainPage  animationSrc={girlhoodWork?.videoUrl } editingSrc={girlhoodWork?.videoUrl } />
+            <VideoPorfolio videoWorks={videoWorks} />
+            <Illustrations />
+            {/* <TVFrame VideoPlayer={<VideoPlayer videoSrc={girlhoodWork?.videoUrl} />} /> */}
+          </div>
+
+        )}
       </section>
     </>
   )

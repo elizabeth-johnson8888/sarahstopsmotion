@@ -11,10 +11,8 @@ export function Image ({ asset="src/assets/react.svg",
                          assetTitle="react", 
                          className="h-10" }) {
     return (
-        <>
             <img src={asset} 
                  alt={assetTitle} 
                  className={`m-0 p-0 ${className}`} />
-        </>
     )
 }
