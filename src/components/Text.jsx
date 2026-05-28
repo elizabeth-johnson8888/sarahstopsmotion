@@ -39,7 +39,7 @@ export function CaptionTextBox ({ text, color }) {
 export function HeaderTextBox ({ text, text_color, className }) {
     return (
         <div className={className}>
-            <h1 className={`p-3 ${text_sizes.xl} ${text_font.title} ${text_color}`}>{text}</h1>
+            <h1 className={`${text_sizes.xl} ${text_font.title} ${text_color}`}>{text}</h1>
         </div>
     )
 }

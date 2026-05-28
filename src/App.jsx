@@ -15,6 +15,7 @@ import { ImageFrame, TVFrame } from './layouts/Frame'
 import { MainPage } from './pages/mainPage'
 import { VideoPorfolio } from './pages/videoportfolio'
 import { Illustrations } from './pages/illustrations.jsx'
+import { AboutMe } from './pages/aboutMe.jsx'
 import { usePortfolio } from './hooks/usePortfolio.js'
 
 function App() {
@@ -82,6 +83,7 @@ function App() {
             <MainPage  animationSrc={girlhoodWork?.videoUrl } editingSrc={girlhoodWork?.videoUrl } />
             <VideoPorfolio videoWorks={videoWorks} />
             <Illustrations />
+            <AboutMe />
             {/* <TVFrame VideoPlayer={<VideoPlayer videoSrc={girlhoodWork?.videoUrl} />} /> */}
           </div>
 

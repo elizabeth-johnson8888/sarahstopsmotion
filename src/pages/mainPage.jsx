@@ -10,13 +10,14 @@ import { page_layout } from "../style/ui"
 import { Image } from "../components/Image"
 import { MainPageVideoPlayer } from "../components/MainPageVideoPlayer"
 import { ImageButton } from "../components/Button"
+import { ContactMeButtons } from "../layouts/ContactMeButtons"
 
 export function MainPage ({ animationSrc, editingSrc }) {
 
     return (
         <div className={`${page_layout} justify-center items-center`}>
             <HeaderTextBox text="SARAH STOPS MOTION"
-                           text_color="text-accent text-center p-0 mt-15 text-7xl md:text-[7rem] 2xl:text-[10rem]"
+                           text_color="text-accent text-center p-3 mt-15 text-7xl md:text-[7rem] 2xl:text-[10rem]"
                            className="w-screen bg-primary"/>
             
             {/* holds animation and editing reels on top of face piture */}
@@ -38,12 +39,8 @@ export function MainPage ({ animationSrc, editingSrc }) {
                 </div>
 
                 {/* border + contact buttons */}
-                <div className="flex bg-secondary w-screen justify-center items-center p-5 m-0 absolute top-0 h-22 md:top-auto md:bottom-0 md:h-auto">
-                    <ImageButton className="translate-y-7 md:translate-y-0"/>
-                    <ImageButton className="translate-y-7 md:translate-y-0"/>
-                    <ImageButton className="translate-y-7 md:translate-y-0"/>
-                    <ImageButton className="translate-y-7 md:translate-y-0"/>
-                </div>
+                <ContactMeButtons className="flex bg-secondary w-screen justify-center items-center p-5 m-0 absolute top-0 h-22 md:top-auto md:bottom-0 md:h-auto"
+                                  buttonClassName="translate-y-7 md:translate-y-0"/>
             </div>
         </div>
     )

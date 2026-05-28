@@ -19,7 +19,7 @@ export function VideoPorfolio ({ videoWorks }) {
     return (
         <div className="bg-linear-to-b from-secondary from-75% to-secondary-background to-75% w-screen m-0">
             <HeaderTextBox text="Animation and Videos"
-                           text_color="text-primary text-center pt-7 md:pt-0 m-0 text-3xl md:text-[4rem] 2xl:text-[6rem]"
+                           text_color="text-primary text-center p-3 pt-7 md:pt-0 m-0 text-3xl md:text-[4rem] 2xl:text-[6rem]"
                            className=""/>
 
             <div className="flex flex-col px-5 md:flex-row justify-center md:justify-evenly items-center">
