@@ -74,20 +74,30 @@ export function usePortfolio() {
     // callback itself can't be async directly.
     async function loadPortfolio() {
       try {
+        console.log("fetching portfolio.json...")
+        const response = await fetch("/portfolio.json");
+        console.log("portfolio response:", response.status)
+        
+        const data = await response.json();
+        console.log("portfolio data:", data)
+        
+        // try resolving just one URL
+        const testUrl = await resolveS3Url(data.works[0].thumbnail)
+        console.log("test URL:", testUrl)
         // -----------------------------------------------------------------
         // STEP 1: Fetch the portfolio index from your /public folder.
         // Because portfolio.json is in /public, it's served at the root
         // of your site — no S3 needed for this tiny text file.
         // -----------------------------------------------------------------
-        const response = await fetch("/portfolio.json");
+        // const response = await fetch("/portfolio.json");
 
         // If the server returned an error (404, 500, etc.), throw so we
         // land in the catch block below.
-        if (!response.ok) {
-          throw new Error(`Failed to load portfolio index: ${response.status}`);
-        }
+        // if (!response.ok) {
+        //   throw new Error(`Failed to load portfolio index: ${response.status}`);
+        // }
 
-        const data = await response.json();
+        // const data = await response.json();
         // data.works is now an array of raw work objects with S3 keys but
         // no real URLs yet — just path strings like "media/videos/film.mp4"
 
