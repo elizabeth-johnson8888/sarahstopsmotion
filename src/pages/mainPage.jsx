@@ -13,7 +13,7 @@ import { ImageButton } from "../components/Button"
 import { ContactMeButtons } from "../layouts/ContactMeButtons"
 
 export function MainPage ({ animationSrc, editingSrc }) {
-
+    console.log( animationSrc, editingSrc )
     return (
         <div className={`${page_layout} justify-center items-center`}>
             <HeaderTextBox text="SARAH STOPS MOTION"
